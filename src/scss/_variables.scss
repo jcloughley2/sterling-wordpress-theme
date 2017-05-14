@@ -1,0 +1,46 @@
+// Colors
+
+$color-white: #FFF;
+$color-black: #000;  
+
+$sterling-charcoal: #404146;  
+
+$sterling-purple: #6b5882;
+$sterling-teal: #38979F;
+$sterling-red: #ff0000;
+$sterling-blue: #3490d3;
+$sterling-gold: #ffac00;
+
+// Structure
+
+$bp-portrait: 600px;
+$bp-landscape: 768px;
+$bp-desktop: 1024px;
+
+$site-boundry: 1200px;
+
+// Text 
+
+$serif: 'Playfair Display', serif;
+$sans-serif: 'Open Sans', sans-serif;
+
+// Sass Breakpoint Mixin
+
+@mixin breakpoint($point) {
+    @media (min-width: $point) { @content; }
+}
+
+@mixin compartment() {
+	display: block;
+    width: 100%;
+    max-width: $site-boundry;
+    margin: 0 auto;  
+}
+
+
+
+
+
+
+
+

@@ -9,6 +9,8 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var livereload = require('gulp-livereload');
+var sourcemaps = require('gulp-sourcemaps');
+var autoprefixer = require('gulp-autoprefixer');
 
 // Lint Task
 gulp.task('lint', function() {
@@ -17,12 +19,14 @@ gulp.task('lint', function() {
         .pipe(jshint.reporter('default'));
 });
 
-// Compile Our Sass
-gulp.task('sass', function() {
+gulp.task('sass', function () {
     return gulp.src('src/scss/*.scss')
-        .pipe(sass())
-        .pipe(gulp.dest(''))
-        .pipe(livereload());
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    .pipe(sourcemaps.write())
+    .pipe(autoprefixer())
+    .pipe(gulp.dest(''))
+    .pipe(livereload());
 });
 
 // Concatenate & Minify JS
@@ -36,8 +40,8 @@ gulp.task('scripts', function() {
 gulp.task('watch', function() {
   livereload.listen();
     gulp.watch('src/js/*.js', ['lint', 'scripts']);
-    gulp.watch('src/scss/*.scss', ['sass']);
+    gulp.watch('src/scss/**/*.scss', ['sass']);   
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass', 'scripts', 'watch']);
+gulp.task('default', ['lint', 'sass', 'scripts', 'watch']);   

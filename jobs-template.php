@@ -1,6 +1,22 @@
+<?php
+/* Template Name: Jobs Landing Page */
+?>
+
 <?php get_header(); ?>
-	<p>LALALALA</P>
+<section class="introduction-section panel-section" role="main">
+	<div class="compartment">
+		<h1 class="introduction-title"><?php the_field('introduction_title'); ?></h1>
+		<p class="introduction-tagline"><?php the_field('introduction_tagline'); ?></p>
+	</div>
+</section>
+
+<section class="posts-section panel-section" role="main">
+		<div class="compartment">   
+
+
+
 <section id="content" role="main">
+	<?php query_posts('cat=3'); ?>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <header class="header">
@@ -14,6 +30,9 @@
 </article>
 <?php if ( ! post_password_required() ) comments_template( '', true ); ?>
 <?php endwhile; endif; ?>
+
 </section>
-<?php get_sidebar(); ?>
+	</div>
+</section>
+
 <?php get_footer(); ?>

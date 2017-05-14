@@ -1,0 +1,154 @@
+body.page-template-home-template {
+	
+	.spotlight-2 {
+		background: $color-white;   
+
+		p, h1, h2, h3, h4, h5, h6 {
+			color: $sterling-charcoal;
+		}
+
+		h2 {
+
+			&:after {
+				background: $sterling-charcoal;
+			}
+		}
+	}
+
+	.drop {
+		width: 100px;
+		height: 100px;
+		border-radius: 100%;
+		display: inline-block; 
+		position: relative; 
+		margin: 0 50px;   
+
+		&:before {
+			content: '';
+			display: inline-block;
+			width: 30px;
+			height: 44px;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%) rotate(-90deg);
+			transform-origin: center center;
+			left: -5px;
+		}  
+
+		&:after {
+			content: '';
+			display: inline-block;
+			width: 30px;
+			height: 44px;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%) rotate(90deg);
+			transform-origin: center center;
+			right: -5px;
+		}     
+
+		&.drop-1 {
+			background: $sterling-red; 
+
+			&:before {
+				width: 100px;
+				height: 3px;
+				background: linear-gradient(to right, $sterling-red, $sterling-blue);
+				left: 100%;
+				transform: translateY(-50%);
+			} 
+
+			&:after {
+				background-image: url('images/teardrop-red.svg');  
+			}         
+		}    
+
+		&.drop-2 {
+			background: $sterling-blue;   
+
+			&:before {
+				background-image: url('images/teardrop-blue.svg');  
+			} 
+
+			&:after {
+				background-image: url('images/teardrop-blue.svg');  
+			}   
+		} 
+
+		&.drop-3 {
+			background: $sterling-gold;
+
+			&:before {
+				background-image: url('images/teardrop-gold.svg');  
+			}   
+
+			&:after {
+				width: 100px;
+				height: 3px;
+				background: linear-gradient(to right, $sterling-blue, $sterling-gold);
+				right: 100%;
+				transform: translateY(-50%);
+			}   
+		}   
+	}
+}
+
+
+body.page-template-contact-template {
+
+	.wpcf7 {
+
+		span {
+			width: 100%;
+			display: inline-block;
+			margin-bottom: 40px;
+		}
+
+		input, textarea {
+			width: 100%;
+			padding: 10px 15px;
+			font-size: 18px;
+			line-height: 36px;
+			border: 1px solid #aeaeae;
+			box-sizing: border-box;
+			vertical-align: top;
+		}
+
+		.wpcf7-submit {
+			@extend .content-button;
+			display: inline-block;
+			width: auto;
+			border-color: $sterling-purple;
+			background: transparent;
+			color: $sterling-purple;
+			cursor: pointer;
+
+			&:hover {
+				background: $sterling-purple;
+				color: $color-white;
+			}
+
+		}
+
+
+	}
+
+	::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+		font-style: italic;
+	}
+	::-moz-placeholder { /* Firefox 19+ */
+		font-style: italic;
+	}
+	:-ms-input-placeholder { /* IE 10+ */
+		font-style: italic;
+	}
+	:-moz-placeholder { /* Firefox 18- */
+		font-style: italic;
+	}
+}
+
+
+
+
+
+
