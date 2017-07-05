@@ -8,6 +8,15 @@
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+<section class="lightbox panel-white">
+	<span class="lightbox-close icon-close"><span class="icon-space"></span></span>
+		<span class="lightbox-arrow disabled lightbox-prev icon-arrow-left"><span class="icon-space"></span></span>
+		<div class="compartment">
+			<p>This is the lightbox</p>
+		</div>
+		<span class="lightbox-arrow disabled lightbox-next icon-arrow-right"><span class="icon-space"></span></span>
+	</div>
+</section>
 <div id="wrapper" class="hfeed">
 <header id="header" role="banner">
 	<div class="compartment">
@@ -19,4 +28,4 @@
 	</nav>
 </div>
 </header>
-<div id="container">
+<div id="container"> 

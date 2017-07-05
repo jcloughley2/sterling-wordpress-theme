@@ -1,0 +1,273 @@
+
+body {
+	
+	&.lightbox-active {
+		overflow: hidden;
+		padding-right: 15px;
+
+		.lightbox {
+			opacity: 1;
+			pointer-events: auto;
+			transform: scale(1);
+		}
+	}
+}
+
+// Header
+
+#header {
+	background: $sterling-purple;
+	width: 100%;
+	padding: 0 20px;
+
+	>.compartment {
+		display: flex;
+		box-orient: horizontal;
+		padding: 20px 0;
+		justify-content: space-between;  
+	}
+}
+
+#site-title {
+	display: inline-block;  
+	height: 50px;
+
+	@include breakpoint($bp-desktop) {
+		flex: 0 0 195px;	
+	}
+
+	h1 {
+
+		margin-bottom: 0;  
+	}
+
+	a {
+		display: inline-block;
+		background: url('images/logo.svg');
+		width: 195px;
+		height: 52px;
+		background-repeat: no-repeat;
+		background-size: 195px 52px;
+		font-size: 0;
+		vertical-align: top;
+	}
+}
+
+#header-menu {
+	flex: 1;  
+	width: 100%;
+	max-width:  700px;
+	text-align: right;
+
+	ul {
+		display: inline-block;
+	}
+
+	li {
+		display: inline-block;
+		padding: 0 25px;
+	}
+
+	a {
+		color: $color-white;
+		text-transform: uppercase;
+		font-weight: bold;
+		line-height: 52px;
+		padding: 0 5px;
+		display: inline-block;
+		position: relative;
+		font-size: 14px;
+
+		&:before {
+			content: '';
+			left: 0;
+			width: 100%;
+			display: inline-block;
+			height: 2px;
+			background: $color-white;
+			bottom: 3px;
+			position: absolute;
+			transition: .3s all;
+			opacity: 0;
+		}
+
+		&:hover {
+
+			&:before {
+				bottom: 8px;
+				opacity: 1;
+			}
+		}
+	}
+}
+
+// Footer
+
+#footer {
+	background: $sterling-purple;
+	padding: 0 20px;
+	color: $color-white;
+
+	@include breakpoint($bp-portrait) {
+		padding: 0 30px;		
+	}
+
+	>.compartment {
+		padding: 40px 0;
+		display: flex;
+		justify-content: space-between;
+		flex-flow: column;
+		align-items: center;
+
+		@include breakpoint($bp-landscape) {
+			flex-flow: row wrap;
+			align-items: flex-start;			
+		}
+	}
+
+	a {
+		color: $color-white;
+	}
+
+	#site-title {
+		margin-bottom: 40px;
+
+		@include breakpoint($bp-landscape) {
+			width: 50%;
+			margin-bottom: 0px;
+		}
+
+		@include breakpoint($bp-desktop) {
+			
+		}
+	}
+
+	#site-desc {
+		width: 100%;
+		font-size: 14px;
+		line-height: 22px;
+		margin-bottom: 40px;
+
+		@include breakpoint($bp-landscape) {
+			width: 50%;
+			margin-bottom: 0;
+		}
+
+		@include breakpoint($bp-desktop) {
+			width: 36%;	
+		}
+
+		.widget-title {
+			display: none;
+		}
+	}
+
+	#site-details {
+		width: 100%;
+		display: inline-block;
+
+		@include breakpoint($bp-portrait) {
+			text-align: center;
+		}
+
+		@include breakpoint($bp-landscape) {  
+			width: 100%;
+			margin-top: 40px;	
+		}
+
+		@include breakpoint($bp-desktop) {  
+			width: 36%;	
+			margin-top: 0;
+		}
+
+		#footer-menu {
+			margin-bottom: 40px; 
+	
+			ul {
+				display: flex;
+				flex-flow: row no-wrap;
+				justify-content: center;
+				text-align: left;
+				justify-content: space-between;
+
+				@include breakpoint($bp-portrait) {
+					justify-content: center;
+				}
+
+				@include breakpoint($bp-landscape) {
+					//justify-content: space-between;
+				}
+			}
+
+			a {
+				font-size: 12px;
+				color: $color-white;
+				text-transform: uppercase;
+				font-weight: bold;
+				line-height: 12px;
+				
+				display: inline-block;
+				position: relative;
+				transition: .3s all;
+
+				@include breakpoint($bp-portrait) {
+					padding: 0 15px;
+				}
+
+				&:hover {
+					opacity: .75;
+				}
+			}
+		}
+	}
+
+	.site-utility {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-flow: column;
+
+		@include breakpoint($bp-portrait) {
+			flex-flow: row;
+			align-items: center;
+		}
+	}
+
+	.site-social {
+		display: inline-block;
+		float: left;
+		text-align: left;
+		margin-bottom: 40px;
+
+		@include breakpoint($bp-portrait) {
+			margin-bottom: 0px;
+		}
+
+		li {
+			display: inline-block;
+			width: 30px;
+			background: $color-white;
+			height: 30px;
+			border-radius: 100%;
+			margin-right: 10px;
+			font-size: 0;
+			vertical-align: top;
+		}
+	}
+
+	.site-policy {
+		display: inline-block;
+		float: left;
+		font-size: 14px;
+		line-height: 22px;
+		text-align: center;
+
+		@include breakpoint($bp-portrait) {
+			text-align: right;	
+		}
+
+		a {
+			font-weight: bold;
+		}
+	}
+}

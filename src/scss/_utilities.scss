@@ -1,0 +1,12 @@
+// Sass Breakpoint Mixin
+
+@mixin breakpoint($point) {
+    @media (min-width: $point) { @content; }
+}
+
+@mixin compartment() {
+	display: block;
+    width: 100%;
+    max-width: $site-boundry;
+    margin: 0 auto;     
+}

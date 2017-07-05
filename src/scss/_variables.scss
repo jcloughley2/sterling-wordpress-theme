@@ -5,8 +5,8 @@ $color-black: #000;
 
 $sterling-charcoal: #404146;  
 
-$sterling-purple: #6b5882;
-$sterling-teal: #38979F;
+$sterling-purple: #7859B0;
+$sterling-teal: #359DC1;
 $sterling-red: #ff0000;
 $sterling-blue: #3490d3;
 $sterling-gold: #ffac00;
@@ -17,25 +17,38 @@ $bp-portrait: 600px;
 $bp-landscape: 768px;
 $bp-desktop: 1024px;
 
-$site-boundry: 1200px;
+$site-boundry: 980px;
 
 // Text 
 
 $serif: 'Playfair Display', serif;
 $sans-serif: 'Open Sans', sans-serif;
 
-// Sass Breakpoint Mixin
+// Icons
 
-@mixin breakpoint($point) {
-    @media (min-width: $point) { @content; }
-}
-
-@mixin compartment() {
-	display: block;
-    width: 100%;
-    max-width: $site-boundry;
-    margin: 0 auto;  
-}
+$icon-image: (
+	heart: url('images/icon-heart.svg'),  
+	ribbon: url('images/icon-ribbon.svg'),
+	target: url('images/icon-target.svg'),
+	lightbulb: url('images/icon-lightbulb.svg'),
+	hands: url('images/icon-hands.svg'),
+	stone: url('images/icon-stone.svg'),
+	heart-white: url('images/icon-heart-white.svg'),  
+	ribbon-white: url('images/icon-ribbon-white.svg'),
+	target-white: url('images/icon-target-white.svg'),
+	lightbulb-white: url('images/icon-lightbulb-white.svg'),
+	hands-white: url('images/icon-hands-white.svg'),
+	stone-white: url('images/icon-stone-white.svg'),
+	map: url('images/icon-map.svg'),
+	flags: url('images/icon-flags.svg'),
+	thumbs-up: url('images/icon-thumbs-up.svg'),
+	telescope: url('images/icon-telescope.svg'),
+	transfer: url('images/icon-transfer.svg'),
+	write: url('images/icon-write.svg'),
+	arrow-left: url('images/icon-arrow-left.svg'),
+	arrow-right: url('images/icon-arrow-right.svg'),
+	close: url('images/icon-close.svg'),
+);
 
 
 

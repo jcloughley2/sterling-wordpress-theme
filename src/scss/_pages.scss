@@ -1,98 +1,248 @@
 body.page-template-home-template {
-	
-	.spotlight-2 {
-		background: $color-white;   
 
-		p, h1, h2, h3, h4, h5, h6 {
-			color: $sterling-charcoal;
+	.grid-2x3 {
+		text-align: center;
+		display: flex;
+		flex-flow: column wrap;
+		justify-content: space-around;
+
+		@include breakpoint($bp-portrait) {
+				flex-flow: row wrap;	
 		}
 
-		h2 {
+		.tile {
+			width: 100%;
+			margin-bottom: 60px;
 
-			&:after {
-				background: $sterling-charcoal;
+			@include breakpoint($bp-portrait) {
+				width: 40%;
+				margin-bottom: 100px;
+			}
+
+			.icon-space {
+				width: 70px;
+				height: 70px;
+				display: inline-block;
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: center center;
+				margin-bottom: 30px;
+			}
+
+			&:nth-last-child(2) {
+
+				@include breakpoint($bp-portrait) {
+					margin-bottom: 0;
+				}
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}	
+}
+
+body.page-template-team-template {
+
+	.profiles-content {
+		display: flex;
+		flex-flow: column wrap;
+		justify-content: center;
+		align-items: center;
+
+		@include breakpoint($bp-portrait) {
+			flex-flow: row wrap;
+			justify-content: space-around;	
+			align-content: flex-start;
+		}
+
+		article.profile-post {
+			position: relative;
+			width: 80%;
+			margin: 0 1% 40px;
+
+			@include breakpoint($bp-portrait) {
+				width: 40%;
+			}
+
+			@include breakpoint($bp-landscape) {
+				width: 30%;
+				margin-bottom: 60px;	
+			}
+
+			@include breakpoint($bp-landscape) {
+				width: 20%;	
+			}
+
+			.bg-img {
+				display: inline-block;
+				width: 100%;
+				-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+				filter: grayscale(100%);
+				transition: .3s all;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: center center;
+
+				&:before {
+					content: '';
+					padding-top: 215 /175 * 100%;
+					width: 100%;
+					display: inline-block;
+				}
+			}
+
+			header {
+				position: relative;
+				background: #FAFAFA;
+				padding: 10px;
+				transform-origin: center center;
+				color: $sterling-charcoal;
+				transition: .3s all;
+				text-align: center;
+				width: 100%;
+				height: 100px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+
+				h3 {
+					font-size: 16px;
+					line-height: 24px;
+					margin-bottom: 0;   
+				}
+			}
+
+			.post-meta-key {
+				display: none;   
+			}
+
+			&:hover {
+				cursor: pointer;
+
+				header {
+					background: $sterling-purple;
+					color: $color-white;
+					transform: scale(1.05);
+				}
+
+				.bg-img {
+					-webkit-filter: initial; /* Safari 6.0 - 9.0 */
+					filter: initial;
+				}
 			}
 		}
 	}
+}
 
-	.drop {
-		width: 100px;
-		height: 100px;
-		border-radius: 100%;
-		display: inline-block; 
-		position: relative; 
-		margin: 0 50px;   
+body.page-template-clients-template {    
 
-		&:before {
-			content: '';
-			display: inline-block;
-			width: 30px;
-			height: 44px;
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%) rotate(-90deg);
-			transform-origin: center center;
-			left: -5px;
-		}  
+	.client-content {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;   
+	}
 
-		&:after {
-			content: '';
-			display: inline-block;
-			width: 30px;
-			height: 44px;
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%) rotate(90deg);
-			transform-origin: center center;
-			right: -5px;
-		}     
+	button.client-type-post {
+		width: 90%;
+		display: inline-block;
+		border: 3px solid $sterling-purple;
+		border-radius: 50px;
+		transform-origin: center center;
+		transition: .3s all;
+		color: $sterling-purple;
+		text-align: center;
+		cursor: pointer;
+		font-weight: bold;
+		font-size: 20px;
+		height: 90px;
+		background: transparent;
+		margin-bottom: 30px;
 
-		&.drop-1 {
-			background: $sterling-red; 
+		@include breakpoint($bp-portrait) {
+			width: 45%;
+			margin-bottom: 50px;
+		}
 
-			&:before {
-				width: 100px;
-				height: 3px;
-				background: linear-gradient(to right, $sterling-red, $sterling-blue);
-				left: 100%;
-				transform: translateY(-50%);
-			} 
+		@include breakpoint($bp-landscape) {
+			width: 30%;
+			margin-bottom: 50px;			
+		}
 
-			&:after {
-				background-image: url('images/teardrop-red.svg');  
-			}         
-		}    
+		&:hover {
+			background: $sterling-purple;
+			transform: scale(1.035);
+			color: $color-white;  
+		}
 
-		&.drop-2 {
-			background: $sterling-blue;   
+		&:last-child {
+			margin-bottom: 0;
+		}
 
-			&:before {
-				background-image: url('images/teardrop-blue.svg');  
-			} 
+		&:nth-last-child(2) {
 
-			&:after {
-				background-image: url('images/teardrop-blue.svg');  
-			}   
-		} 
+			@include breakpoint($bp-portrait) {
+				margin-bottom: 0;			
+			}
+		}
 
-		&.drop-3 {
-			background: $sterling-gold;
+		&:nth-last-child(3) {
 
-			&:before {
-				background-image: url('images/teardrop-gold.svg');  
-			}   
-
-			&:after {
-				width: 100px;
-				height: 3px;
-				background: linear-gradient(to right, $sterling-blue, $sterling-gold);
-				right: 100%;
-				transform: translateY(-50%);
-			}   
-		}   
+			@include breakpoint($bp-landscape) {
+				margin-bottom: 0;			
+			}
+		}
 	}
 }
 
+body.page-template-jobs-template {  
+
+	.jobs-post {
+		font-size: 20px;
+		display: inline-block;
+		display: flex;
+		line-height: 28px;
+
+		.position-company {
+			font-weight: bold;
+			display: inline-block;
+			margin-right: 30px;
+		}
+
+		.position-title {
+			color: $sterling-purple;
+			display: inline-block;
+			position: relative;
+			cursor: pointer;
+
+			&:after {
+				content: '';
+				position: absolute;
+				bottom: -2px;
+				display: inline-block;
+				width: 100%;
+				left: 0;
+				width: 100%;
+				background: $color-white;
+				height: 2px;
+				transition: .3s all;
+			}
+
+			&:hover {
+
+				&:after {
+					background: $sterling-purple;
+				}
+			}
+		}
+
+		.post-meta-key {
+			display: none;   
+		}
+	}
+}
 
 body.page-template-contact-template {
 
@@ -127,10 +277,7 @@ body.page-template-contact-template {
 				background: $sterling-purple;
 				color: $color-white;
 			}
-
 		}
-
-
 	}
 
 	::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -143,12 +290,6 @@ body.page-template-contact-template {
 		font-style: italic;
 	}
 	:-moz-placeholder { /* Firefox 18- */
-		font-style: italic;
+		font-style: italic; 
 	}
 }
-
-
-
-
-
-

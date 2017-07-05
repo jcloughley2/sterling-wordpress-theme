@@ -1,4 +1,22 @@
 <nav id="nav-below" class="navigation" role="navigation">
-<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">&larr;</span> %title' ); ?></div>
-<div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">&rarr;</span>' ); ?></div>
+
+	<?php $prev = get_previous_post( true ); ?>
+
+	<?php if ( is_object( $prev ) ) : ?>
+
+
+			<button class="post-prev" rel="<?php echo esc_url( get_permalink( $prev->ID ) ); ?>">Previous</button>
+
+	<?php endif; ?>
+
+	<?php $next = get_next_post( true ); ?>
+
+	<?php if ( is_object( $next ) ) : ?>
+
+
+			<button class="post-next" rel="<?php echo esc_url( get_permalink( $next->ID ) ); ?>">Next</button>
+ 
+
+	<?php endif; ?>
+
 </nav>

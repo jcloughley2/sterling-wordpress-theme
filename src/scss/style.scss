@@ -12,8 +12,10 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 .sticky{}.bypostauthor{}.wp-caption{}.wp-caption-text{}.gallery-caption{}.alignright{}.alignleft{}.aligncenter{}
 
 @import 'variables',
+		'utilities',
 		'vendor/slick',    
 		'html',   
+		'structure',
 		'content',
 		'pages';         
 
