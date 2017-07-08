@@ -3,6 +3,7 @@
 ?>
 
 <?php get_header(); ?>
+
 <section class="panel-introduction panel-section" role="main">
 	<div class="compartment">
 		<h1 class="introduction-title"><?php the_field('introduction_title'); ?></h1>
@@ -60,18 +61,4 @@
 	</div>
 </section>
 
-<!-- <section class="slider-section panel-section"" role="main">
-	<div class="compartment">
-		<div class="slider-citation-container">
-			<div class="slide-citation"><div class="slide-citation-inner"><?php the_field('slider_slide_1_citation'); ?></div></div>
-			<div class="slide-citation"><div class="slide-citation-inner"><?php the_field('slider_slide_2_citation'); ?></div></div>
-			<div class="slide-citation"><div class="slide-citation-inner"><?php the_field('slider_slide_3_citation'); ?></div></div>
-		</div>
-		<div class="slider-text-container">
-			<div class="slide-text"><?php the_field('slider_slide_1_text'); ?></div>
-			<div class="slide-text"><?php the_field('slider_slide_2_text'); ?></div>
-			<div class="slide-text"><?php the_field('slider_slide_3_text'); ?></div>
-		</div>
-	</div>
-</section> -->
 <?php get_footer(); ?>

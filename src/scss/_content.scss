@@ -1,4 +1,8 @@
+/*
 
+Non-html shared stylings
+
+*/
 
 .panel-section {
 	padding: 0 20px;
@@ -37,6 +41,10 @@
 			font-size: 20px;	
 			line-height: 28px;		
 		}
+
+		ul {
+			@include list-reset;
+		}
 	}
 }
 
@@ -54,6 +62,16 @@
 	.values-text {
 		text-align: center;
 		margin-bottom: 60px;
+	}
+
+	.content-button {  
+		border: 3px solid $sterling-purple;
+		color: $sterling-purple;
+
+		&:hover {
+			color: $color-white;
+			background: $sterling-purple;
+		}
 	}
 }
 
@@ -94,7 +112,7 @@ h2.panel-title {
 	display: inline-block;
 	width: 100%;
 	position: relative;
-	padding-bottom: 30px;
+	padding-bottom: 25px;
 	color: $color-white;
 	text-align: center;
 	margin-bottom: 60px;
@@ -130,116 +148,8 @@ h2.panel-title {
 	}
 }
 
-.slider-section {
-	padding: 0 20px;
-	background: $color-white;
-
-	.compartment {
-		padding: 80px 0;
-		max-width: 800px;
-	}
-}
-
-.slider-citation-container {
-	width: 600px;
-	margin: 0 auto 20px;
-	position: relative;
-	padding: 0 0;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-
-	.slick-arrow {
-		line-height: 40px;
-		width: 40px;
-		display: inline-block !important;
-		text-align: center;
-		flex: 0 0 40px;
-
-		&:before {
-			content: '#';
-			display: block;
-		}
-
-		&.slick-prev {
-			right: 0; 
-
-		}
-
-		&.slick-next {
-			left: 0;
-		}
-	}
-
-	.slick-slide {
-		text-align: center; 
-		padding: 0 20px;
-		text-align: center;
-
-		p {
-			margin: 0;
-		}
-
-		img {
-			display: inline-block;
-			height: 75px;
-			border: 3px solid red;
-			width: auto;
-			position: absolute;
-			top: left;
-			left: 0;
-			border-radius: 100%;
-		}
-
-		.slide-citation-inner {
-			padding-left: 95px;
-			min-height: 75px;
-			display: inline-block;
-			width: auto;
-			position: relative;
-			margin: 0 auto;
-			text-align: left;
-		}
-	}
-
-	.slide-citation {
-		display: inline-block;  
-		width: 300px;   
-	}
-}
-
-.slider-text-container {
-	min-height: 150px;
-	position: relative;
-
-	.slick-list {
-		position: absolute;
-		left: 0;
-		width: 100%;
-		top: 50%;
-		transform: translateY(-50%);
-	}
-	
-	.slick-slide {
-		text-align: center;
-
-		p:last-child {
-		margin-bottom: 0;
-		}
-	}
-
-	&:before {
-		content: '#';
-		display: inline-block;
-		font-size: 200px;
-		color: blue;
-		opacity: .15;
-		position: absolute;
-		top: 0;
-		left: 50%;
-		transform: translateX(-50%);
-		line-height: 150px;
-	}
+.post-meta {
+	@include list-reset;
 }
 
 .six-listing {
@@ -291,60 +201,40 @@ h2.panel-title {
 	}
 }
 
-.three-listing {
-	display: flex;
-
-	.tile {
-		padding: 0 30px;
-		text-align: left;
-	}
-}
-
-.lightbox {
-	opacity: 0;
-	position: fixed;
-	top: 0;
-	right: 0;
-	background: rgba($color-white, .95);    
-	padding: 40px 54px;
-	display: inline-block;
-	width: 100%;  
+.lightbox-assets {
 	pointer-events: none;
+	opacity: 0;
 	transition: .3s all;
-	z-index: 2;  
-	height: 100%;  
-	overflow: scroll;
-	transform: scale(.75);
 
-	@include breakpoint($bp-portrait) {
-		padding: 60px 84px;		
+	.lightbox-active & {
+		opacity: 1;
+		pointer-events: auto;
 	}
 
-	.compartment {
-		transition: .3s all;
-		padding: 0;
-
-		&.inactive {
-			opacity: 0;
-		}
-	}
-
-	.lightbox-close {
-		display: inline-block;
-		width: 20px;
-		height: 20px;
+	.lightbox-close, .lightbox-arrow {
 		position: fixed;
-		top: 30px;
-		right: 30px;
+		display: inline-block;
+		z-index: 5;
 		cursor: pointer; 
+		transition: .3s all;
 
 		.icon-space {
 			display: inline-block;
-			width: 100%;
-			height: 100%;
 			background-repeat: no-repeat;
 			background-position: center center;
 			background-size: contain;
+		} 
+	}
+
+	.lightbox-close {
+		width: 20px;
+		height: 20px;
+		top: 30px;
+		right: 30px;
+
+		.icon-space {
+			width: 100%;
+			height: 100%;
 		} 
 	}
 
@@ -352,13 +242,8 @@ h2.panel-title {
 		padding: 15px; 
 		width: 54px;
 		height: 54px; 
-		position: fixed;
 		top: 50%;
 		transform: translateY(-50%);
-		display: inline-block;
-		z-index: 2;
-		cursor: pointer; 
-		transition: .3s all;
 
 		@include breakpoint($bp-portrait) {
 			width: 84px;
@@ -371,12 +256,8 @@ h2.panel-title {
 		}
 
 		.icon-space {
-			display: inline-block;
 			width: 24px;
 			height: 24px;
-			background-repeat: no-repeat;
-			background-position: center center;
-			background-size: contain;
 		} 
 
 		&.disabled {
@@ -393,15 +274,49 @@ h2.panel-title {
 	}
 }
 
+.lightbox {
+	opacity: 0;
+	position: fixed;
+	top: 0;
+	right: 0;
+	background: rgba($color-white, .95);    
+	padding: 40px 54px;
+	display: inline-block;
+	width: 100%;  
+	pointer-events: none;
+	transition: .3s all;
+	z-index: 4;  
+	height: 100%;  
+	overflow: scroll;
+	transform: scale(.75);
+
+	@include breakpoint($bp-portrait) {
+		padding: 80px 84px;		
+	}
+
+	.lightbox-active & {
+		opacity: 1;
+		pointer-events: auto;
+		transform: scale(1);
+	}
+
+	.compartment {
+		transition: .3s all;
+		padding: 0;
+
+		&.inactive {
+			opacity: 0;
+		}
+	}
+}
+
 .modal-content {
+	font-size: 20px;
+	line-height: 30px;
 
 	header {
 		text-align: center;
 		margin-bottom: 40px;
-
-		@include breakpoint($bp-portrait) {
-			margin-bottom: 60px;	
-		}
 	}
 
 	img {
@@ -411,17 +326,15 @@ h2.panel-title {
 	}
 
 	h2.panel-title {
-		color: $sterling-charcoal;
-		margin-bottom: 15px;
-		padding-bottom: 15px;
-
-		&:after {
-			background: $sterling-charcoal;
-		}
+		margin-bottom: 20px;
 	}
 
-	.profile-tag {
+	.post-tag {
 		font-size: 18px;
+
+		.post-meta-key {
+			display: none;
+		}
 	}
 }  
 
@@ -434,28 +347,3 @@ h2.panel-title {
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,4 +1,8 @@
-// Sass Breakpoint Mixin
+/*
+
+SCSS Mixins
+
+*/
 
 @mixin breakpoint($point) {
     @media (min-width: $point) { @content; }
@@ -9,4 +13,10 @@
     width: 100%;
     max-width: $site-boundry;
     margin: 0 auto;     
+}
+
+@mixin list-reset {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }

@@ -4,6 +4,8 @@
 
 <?php get_header(); ?>
 
+<?php include 'lightbox.php';?>
+
 <section class="panel-introduction panel-section" role="main">
 	<div class="compartment">
 		<h1 class="introduction-title"><?php the_field('introduction_title'); ?></h1>
@@ -24,10 +26,9 @@
 	<div class="compartment">  
 		<h2 class="panel-title">Who We Are</h2> 
 		<div class="profiles-content" role="main">
-			<?php query_posts('cat=4'); ?>
+			<?php query_posts('cat=4&order=ASC'); ?>
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				<?php $thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'large'); ?>
-
 				<article class="lightbox-trigger profile-post" rel="<?php the_permalink();?>"  id="post-<?php the_ID(); ?>">
 					<div class="bg-img" style="background-image:url(<?php echo $thumbnail[0]; ?>);"></div>
 					<header class="header">
@@ -35,7 +36,6 @@
 						<span class="profile-role"><?php the_meta(); ?></span>
 					</header>
 				</article>
-
 			<?php endwhile; endif; ?>
 			<?php wp_reset_query(); ?>
 		</div>
