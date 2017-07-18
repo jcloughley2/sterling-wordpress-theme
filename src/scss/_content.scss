@@ -209,6 +209,10 @@ h2.panel-title {
 	.lightbox-active & {
 		opacity: 1;
 		pointer-events: auto;
+
+		.lightbox-close {
+			opacity: 1;
+		}
 	}
 
 	.lightbox-close, .lightbox-arrow {
@@ -231,6 +235,8 @@ h2.panel-title {
 		height: 20px;
 		top: 30px;
 		right: 30px;
+		opacity: 0;
+
 
 		.icon-space {
 			width: 100%;
@@ -300,6 +306,14 @@ h2.panel-title {
 		transform: scale(1);
 	}
 
+	.ie10 & {
+		display: none;
+	}
+
+	.ie10.lightbox-active & {
+		display: block;
+	}
+
 	.compartment {
 		transition: .3s all;
 		padding: 0;
@@ -336,7 +350,17 @@ h2.panel-title {
 			display: none;
 		}
 	}
-}  
+} 
+
+a[href*="tel"] {
+	font-weight: bold;
+	color: inherit;
+
+	@include breakpoint($bp-portrait) {
+		pointer-events: none;
+		font-weight: normal; 
+	}
+}   
 
 @each $desc, $icon in $icon-image {  
 

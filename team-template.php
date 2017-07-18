@@ -26,7 +26,21 @@
 	<div class="compartment">  
 		<h2 class="panel-title">Who We Are</h2> 
 		<div class="profiles-content" role="main">
-			<?php query_posts('cat=4&order=ASC'); ?>
+			<?php query_posts('cat=7&order=ASC'); ?>
+			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+				<?php $thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'large'); ?>
+				<article class="lightbox-trigger profile-post" rel="<?php the_permalink();?>"  id="post-<?php the_ID(); ?>">
+					<div class="bg-img" style="background-image:url(<?php echo $thumbnail[0]; ?>);"></div>
+					<header class="header">
+						<h3 class="profile-name"><?php the_title(); ?></h3> 
+						<span class="profile-role"><?php the_meta(); ?></span>
+					</header>
+				</article>
+			<?php endwhile; endif; ?>
+			<?php wp_reset_query(); ?>
+		</div>
+		<div class="profiles-content" role="main">
+			<?php query_posts('cat=8&order=ASC'); ?>
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				<?php $thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'large'); ?>
 				<article class="lightbox-trigger profile-post" rel="<?php the_permalink();?>"  id="post-<?php the_ID(); ?>">

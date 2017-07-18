@@ -9,7 +9,7 @@
 <section class="panel-introduction panel-section" role="main">
 	<div class="compartment">
 		<h1 class="introduction-title"><?php the_field('introduction_title'); ?></h1>
-		<p class="introduction-tagline"><?php the_field('introduction_tagline'); ?></p>
+		<div class="introduction-tagline"><?php the_field('introduction_tagline'); ?></div>
 	</div>
 </section>
 
@@ -17,7 +17,7 @@
 	<div class="compartment">  
 	<h2 class="panel-title">Jobs</h2> 
 		<div class="job-content">
-			<?php query_posts('cat=3'); ?>
+			<?php query_posts('cat=3&order=ASC'); ?>
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 			<?php $thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'large'); ?>
 			<article class="jobs-post">

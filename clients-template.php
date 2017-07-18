@@ -31,15 +31,15 @@
 		<div class="news-content">
 			<?php query_posts('cat=6&posts_per_page=3'); ?>
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-			<a href="<?php the_permalink();?>" target="_blank" class="news-post" id="post-<?php the_ID(); ?>">
-				<h3 class="post-title truncate-35"><?php echo(get_the_title()); ?></h3>
+			<div class="news-post" id="post-<?php the_ID(); ?>">
+				<a href="<?php the_permalink();?>" target="_blank" class="post-title truncate-35"><?php echo(get_the_title()); ?></a>
 				<p class="post-excerpt truncate-175"><?php echo(get_the_excerpt()); ?></p>
 				<div class="post-details">
 					<span class="post-thumb"><?php the_post_thumbnail(); ?></span>
 					<span class="post-meta"><?php the_meta(); ?></span>
 					<span class="post-date"><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' ago'; ?></span>
 				</div>
-			</a>
+			</div>
 			<?php endwhile; endif; ?>
 			<?php wp_reset_query(); ?>
 		</div>
